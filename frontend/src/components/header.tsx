@@ -26,7 +26,10 @@ const Header = () => {
           : "after:scale-x-0"
           }`}>Time Table</Link>
       </div>
-      <Auth />
+      <div className='absolute right-4 flex items-center gap-2 max-sm:hidden'>
+        <Auth />
+
+      </div>
     </div>
   )
 }

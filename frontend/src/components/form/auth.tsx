@@ -59,7 +59,7 @@ const Auth = () => {
 
     return (
         <Dialog>
-            <DialogTrigger className="absolute right-4"><Button className='w-20 hover:w-40 max-sm:hidden' variant={'outline'}>Log in</Button></DialogTrigger>
+            <DialogTrigger className=""><Button className='w-20 hover:w-40 max-sm:w-60' variant={'outline'}>Log in</Button></DialogTrigger>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle className="flex justify-between items-center pr-2">

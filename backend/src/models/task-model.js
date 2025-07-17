@@ -20,11 +20,11 @@ const taskModel = new Schema({
         type: String,
         required: true,
     },
-    done:{
+    done: {
         type: Boolean,
         required: true,
     }
-});
+}, { timestamps: true });
 
-const task = mongoose.model('task',taskModel);
+const task = mongoose.model('task', taskModel);
 module.exports = task;

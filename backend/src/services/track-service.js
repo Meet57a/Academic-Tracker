@@ -23,7 +23,11 @@ exports.taskUpdate = async (req, res) => {
         console.log(body);
 
         await TaskModel.findByIdAndUpdate(body.id, { done: body.donevalue })
-        res.status(200).json({ status: true, msg: "Task Completed." })
+        if(body.donevalue === true) {
+            res.status(200).json({ status: true, msg: "Task marked as done." })
+        } else {
+            res.status(200).json({ status: true, msg: "Task marked as not done." })
+        }
 
     } catch (error) {
         console.log(error);
@@ -84,3 +88,4 @@ exports.fetchTask = async (req, res) => {
 
     }
 }
+

@@ -1,11 +1,29 @@
-import { fetchSubjectAndTimeTable } from "@/services/track";
+import { fetchSubjectAndTimeTable, fetchTask } from "@/services/track";
 import { useEffect, useState } from "react";
 
 type subject = {
     subject: string
 }
+type tasks = {
+    subject: string,
+    task: string,
+    due: string,
+    userId: string,
+    done: boolean,
+    createdAt: string,
+    _id: string,
+}
+
 const SubjectsPage = () => {
     const [subjects, setSubjects] = useState<subject[]>([]);
+    const [tasks, setTasks] = useState<tasks[]>([]);
+    const fetchTaskk = async () => {
+        const res = await fetchTask();
+        console.log(res);
+
+        setTasks(res.tasks)
+    }
+
 
     const fetchSubjects = async () => {
         const res = await fetchSubjectAndTimeTable();
@@ -14,6 +32,7 @@ const SubjectsPage = () => {
 
     useEffect(() => {
         fetchSubjects()
+        fetchTaskk()
     }, []);
     return (
         <div className="min-md:mx-40 tracking-wider max-md:mx-2 grid grid-cols-3 max-sm:grid-cols-1 max-lg:grid-cols-2 gap-4 max-sm:gap-0">
@@ -25,17 +44,17 @@ const SubjectsPage = () => {
                     <div className="flex font-light my-2 justify-between">
                         <div className="flex flex-col items-center">
                             <div className="text-green-300">Done</div>
-                            <div>0</div>
+                            {tasks.filter(task => task.subject === value.subject && task.done).length}
                         </div>
                         <div className="border-2"></div>
                         <div className="flex flex-col items-center">
                             <div className="text-red-300">Pending</div>
-                            <div>{0}</div>
+                            {tasks.filter(task => task.subject === value.subject && !task.done).length}
                         </div>
                         <div className="border-2"></div>
                         <div className="flex flex-col items-center">
                             <div>Total</div>
-                            <div>{0}</div>
+                            {tasks.filter(task => task.subject === value.subject).length}
                         </div>
                     </div>
                 </div>

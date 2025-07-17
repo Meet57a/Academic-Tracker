@@ -122,14 +122,14 @@ const AddSubject = () => {
                     <DialogDescription>
                         <Tabs defaultValue="account" className="w-[400px]">
                             <TabsList className="min-md:w-full mb-2">
-                                <TabsTrigger value="items">Items</TabsTrigger>
+                                <TabsTrigger value="items">Task</TabsTrigger>
                                 <TabsTrigger value="subjects">Subjects</TabsTrigger>
                                 <TabsTrigger value="timetable">Time Table</TabsTrigger>
 
                             </TabsList>
                             <TabsContent value="items">
                                 <Form {...itemForm}>
-                                    <form onSubmit={itemForm.handleSubmit(itemOnSubmit)} className="space-y-4">
+                                    <form onSubmit={itemForm.handleSubmit(itemOnSubmit)} className="space-y-4 max-sm:w-60">
                                         <FormField
                                             control={itemForm.control}
                                             name="subject"
