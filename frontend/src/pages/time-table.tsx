@@ -1,6 +1,5 @@
 import { fetchTable } from '@/services/time-table';
-import { Skeleton } from "@/components/ui/skeleton"
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 
 type timeTable = {
     subject: ""

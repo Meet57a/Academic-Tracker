@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Button } from './ui/button'
 import Auth from './form/auth';
 
 const Header = () => {
